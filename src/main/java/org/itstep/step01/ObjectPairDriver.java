@@ -8,6 +8,11 @@ package org.itstep.step01;
  */
 public class ObjectPairDriver {
 
+    //БОНУСНЫЙ ВОПРОС: Почему компилируется эта строка кода?
+    //stadiums[0] = new ObjectPair("Bridgeforth Stadium", 25000);
+
+    //Ответ
+    //Потому что поля класса(а так-же парметры в констркторе) обьвленны, и передаються в Object
     /**
      * Создайте несколько пар стадионов, затем распечатайте название стадиона с наибольшей вместимостью.
      *
@@ -18,7 +23,7 @@ public class ObjectPairDriver {
         ObjectPair[] stadiums = new ObjectPair[3];
         stadiums[0] = new ObjectPair("Bridgeforth Stadium", 25000);
         stadiums[1] = new ObjectPair("Michigan Stadium", 109901);
-        stadiums[2] = new ObjectPair("Lane Stadium", "66,233");
+        stadiums[2] = new ObjectPair("Lane Stadium", 66233);
 
         System.out.println(stadiums[0]);
 
@@ -33,8 +38,15 @@ public class ObjectPairDriver {
      */
     public static String largestStadium(ObjectPair[] stadiums) {
         // TODO: реализуйте это метод в соответствии с комментариями
-
-        return "";
+        int idx = 0;
+        for(int i = 0; i < 2; i++)
+        {
+            if((int)stadiums[i].getSecond() < (int)stadiums[i+1].getSecond())
+            {
+                idx = i+1;
+            }
+        }
+        return (String) stadiums[idx].getFirst();
     }
 
 }
